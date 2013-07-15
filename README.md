@@ -2,6 +2,7 @@
 ### a Sails application with AngularJS
 
 A simple example of using AngularJS with SailsJS.
+This fork is an attempt to convert example to jade
 
 Partials (inlined)
 ------------------

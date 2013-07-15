@@ -11,15 +11,16 @@ Application.Services = angular.module('application.services', []);
 Application.Controllers = angular.module('application.controllers', []);
 Application.Filters = angular.module('application.filters', []);
 Application.Directives = angular.module('application.directives', []);
+//Application.angulartable = angular.module('angular-table', []);
 
 
-angular.module('application', ['application.filters', 'application.services', 'application.directives', 'application.constants', 'application.controllers']).
+angular.module('application', ['application.filters', 'application.services', 'application.directives', 'application.constants', 'application.controllers','angular-table']).
   config(['$routeProvider', function($routeProvider) {
     $routeProvider.
-      when('/', {templateUrl: 'home.html'}).
-      when('/view1', {templateUrl: 'partial1.html'}).
-      when('/view2', {templateUrl: 'partial2.html'}).
+      when('/', {templateUrl: 'home',controller:'HomeCtrl'}).
+      when('/view1', {templateUrl: 'partial1',controller:'MainCtrl'}).
+      when('/view2', {templateUrl: 'partial2'}).
       when('/remotepartial', {templateUrl: '/template/find/test.html'}).
-      otherwise({templateUrl: 'error404.html'});
+      otherwise({templateUrl: 'error404'});
   }]);
 

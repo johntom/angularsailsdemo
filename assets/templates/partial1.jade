@@ -1,0 +1,36 @@
+ script(type="text/ng-template" id="partial1")
+ h1 View 1
+   p foo = {{foo}}
+     ng-repeat
+     angular-table.demoTable(model='listOfNumbers', default-sort-column='id', style='padding-bottom: 1px;')
+       header-row
+         header-column.demoHeaderColumn(sortable='true', sort-field-name='id')
+           .demoHeaderText Id
+           sort-arrow-ascending
+           sort-arrow-descending
+         header-column.demoHeaderColumn(sortable='false', sort-field-name='name') Name
+         header-column.demoHeaderColumn(sortable='true', sort-field-name='street')
+           .demoHeaderText Street
+           sort-arrow-ascending
+           sort-arrow-descending
+       row(on-selected='handleRowSelection(row)', selected-color='#87cefa', even-color='#ffffff', odd-color='#eeeeee')
+         column {{ row.id }}
+         column {{ row.name }}
+         column {{ row.street }}
+     .demoDetailPane
+       .demoDetailInnerPane
+         p Id: {{ selectedRow.id }}
+         p
+           | Name:
+           input(type='text', ng-model='selectedRow.name', style='width: 150px;')
+         p
+           | Street:
+           input(type='text', ng-model='selectedRow.street', style='width: 150px;')
+         p
+           button(ng-click='addRows(1)') Add Row To End
+         p
+           button(ng-click='listOfNumbers.pop()') Remove Last Row
+         p
+           button(ng-click='listOfNumbers = []') Remove All Rows
+         p
+           button(ng-click='addRows(50)') Add 50 Rows
